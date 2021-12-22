@@ -1,0 +1,47 @@
+@page
+@{
+    ViewData["Title"] = "Admin Panel";
+    ViewData["ActivePage"] = ManageNavPages.AdminPanel;
+}
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="col">
+        <div class="card bg-info">
+            <h5 class="card-header">Users</h5>
+            <div class="card-body">
+                <p class="card-text">Kullanıcıların bilgileri yönetmek için tıklayın</p>
+                <a asp-controller="Admin" asp-action="AccountList" asp-route-Role="User" class="stretched-link"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card text-dark bg-warning">
+            <h5 class="card-header">Admins</h5>
+            <div class="card-body">
+                <p class="card-text">Yöneticilerin bilgileri yönetmek için tıklayın</p>
+                <a asp-controller="Admin" asp-action="AccountList" asp-route-Role="Admin" class="stretched-link"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card text-dark bg-warning">
+            <h5 class="card-header">Yurt</h5>
+            <div class="card-body">
+                <p class="card-text">Yurtların kayıtları yönetmek için tıklayın</p>
+                <a asp-controller="Yurt" asp-action="Index" class="stretched-link"></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card text-dark bg-warning">
+            <h5 class="card-header">User Roles</h5>
+            <div class="card-body">
+                <p class="card-text">Kullanıcıların Roleleri yönetmek için tıklayın</p>
+                <a asp-controller="Admin" asp-action="UserRolesList" class="stretched-link"></a>
+            </div>
+        </div>
+    </div>
+</div>

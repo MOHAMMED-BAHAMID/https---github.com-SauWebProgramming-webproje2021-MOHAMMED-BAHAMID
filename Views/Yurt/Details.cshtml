@@ -1,0 +1,66 @@
+﻿@model WebProje.Models.YurtFoto
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Ayrıntılar</h1>
+
+<div>
+    <h4>Yurt</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Yurt.Yurt_Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Yurt.Yurt_Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Yurt.address)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Yurt.address)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Yurt.Type)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Yurt.Type)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Yurt.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Yurt.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Yurt.Available_place)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Yurt.Available_place)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Yurt.contract)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Yurt.contract)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Yurt.Details)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Yurt.Details)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FotoDir)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FotoDir)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Yurt.YurtID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

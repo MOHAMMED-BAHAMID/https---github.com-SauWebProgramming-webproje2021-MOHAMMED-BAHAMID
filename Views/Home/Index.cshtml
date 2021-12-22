@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@* @foreach ile yapılır sonra *@
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+@for (int i = 0; i < 12; i++)
+{
+  <div class="col">
+    <div class="card">
+      <img src="http://ozertulgan.com/wp-content/uploads/2018/10/filiz-apartment-building-kadikoy-01.jpg" class="card-img-top" alt="Yurt fotosu">
+      <div class="card-body">
+        <h5 class="card-title">Yurdun adı</h5>
+        <p class="card-text">Yurdun hakkında genel bilgiler burda.</p>
+      </div> 
+    </div>
+  </div>
+}

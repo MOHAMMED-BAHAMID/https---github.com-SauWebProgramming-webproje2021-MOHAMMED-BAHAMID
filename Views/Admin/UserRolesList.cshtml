@@ -1,0 +1,32 @@
+@using WebProje.Models
+@model List<WebProje.Models.UserRolesViewModel>
+@{
+    ViewData["Title"] = "User Roles List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>User Roles</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>İşlem</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+        <tr>
+            <td>@user.FName</td>
+            <td>@user.LName</td>
+            <td>@user.Email</td>
+            <td>@string.Join(" , ", user.Roles.ToList())</td>
+            <td>
+                <a class="btn btn-primary" asp-controller="Admin" asp-action="ManageUserRoles" asp-route-userId="@user.UserId">Role Yönet</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

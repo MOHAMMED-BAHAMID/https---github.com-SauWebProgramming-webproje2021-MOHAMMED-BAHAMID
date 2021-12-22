@@ -1,0 +1,76 @@
+﻿@model IEnumerable<WebProje.Models.User>
+
+@{
+
+    ViewData["Title"] = "UserList";
+}
+
+<h1>Users</h1>
+
+<p>
+    <a asp-area="Identity" asp-page="/Account/Register">Yeni Hesap Oluştur</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gender)
+            </th>
+            <th>
+                İşlemler
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @if (item.Gender == 'M')
+                    {
+                        <span>Erkek</span>
+                    }
+                    else if(item.Gender == 'F')
+                    {
+                        <span>Kadın</span>
+                    }
+                </td>
+                <td>
+                    <a asp-controller="Account" asp-action="Edit" asp-route-id="@item.Id">Düzenle</a> |
+                    <a asp-controller="Account" asp-action="Details" asp-route-id="@item.Id">Ayrıntılar</a> |
+                    <a asp-controller="Admin" asp-action="DeleteUserConfirm" asp-route-id="@item.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

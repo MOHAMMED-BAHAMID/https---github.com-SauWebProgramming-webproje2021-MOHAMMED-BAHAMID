@@ -1,0 +1,91 @@
+﻿@model IEnumerable<WebProje.Models.YurtFoto>
+
+@{
+    ViewData["Title"] = "Yurtlar Listesi";
+}
+
+<h1>Yurtlar Listesi</h1>
+
+<p>
+    <a asp-action="CreateYurt">Yurt Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Yurt.Yurt_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yurt.address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yurt.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yurt.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yurt.Available_place)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yurt.contract)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Yurt.Details)
+            </th>
+            <th>
+                Foto Yeri
+            </th>
+            <th>
+                İşlemler
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yurt.Yurt_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yurt.address)
+            </td>
+            <td>
+                @{
+                    if(item.Yurt.Type == 'M')
+                        {<span>Erkek</span>}
+                    else if(item.Yurt.Type == 'F')
+                        {<span>Kız</span>} 
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yurt.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Yurt.Available_place)
+            </td>
+            <td>
+                <span class="d-inline-block text-truncate" style="max-width: 150px;">
+                    @Html.DisplayFor(modelItem => item.Yurt.contract)
+                </span>
+            </td>
+            <td>
+                <span class="d-inline-block text-truncate" style="max-width: 150px;">
+                    @Html.DisplayFor(modelItem => item.Yurt.Details)
+                </span>
+            </td>
+            <td>
+                <span class="d-inline-block text-truncate" style="max-width: 150px;">
+                    @Html.DisplayFor(modelItem => item.FotoDir)
+                </span>
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Yurt.YurtID">Düzenle</a> |
+                <a asp-action="Details" asp-route-id="@item.Yurt.YurtID">Ayrıntılar</a> |
+                <a asp-action="Delete" asp-route-id="@item.Yurt.YurtID">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

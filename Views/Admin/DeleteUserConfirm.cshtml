@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebProje.Models.User>
+@{
+ViewData["Title"] = "Delete User";
+}
+
+<h4>@ViewData["Title"]</h4>
+
+<div class="alert alert-danger" role="alert">
+    <p>
+        <strong>Bu Kullanıcı kalıcı olarak kaldırılacaktır. Bu işlem iptal olamaz.</strong>
+    </p>
+</div>
+
+<div>
+    <form asp-action="DeleteUser" id="DeleteUser" method="post" class="form-group">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+        <label class="form-check-label" for="flexCheckDefault">Onayla</label>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <button class="btn btn-danger" asp-action="DeleteUser" asp-route-id="@ViewBag.id" type="submit">
+            Kullanıcıyı Sil
+        </button>
+    </form>
+</div>
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}
